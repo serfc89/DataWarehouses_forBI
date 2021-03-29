@@ -1,0 +1,43 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-17832885ebf-1e389ea073cea31b": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "classicmodels",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "classicmodels",
+				"url": "jdbc:mysql://localhost:3306/classicmodels",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {
+					"mysql_ssl": {
+						"type": "CONFIG",
+						"enabled": true,
+						"save-password": true,
+						"properties": {
+							"ssl.public.key.retrieve": "true",
+							"ssl.verify.server": "false",
+							"ssl.method": "CERTIFICATES",
+							"ssl.require": "false"
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}
