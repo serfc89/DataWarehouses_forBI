@@ -1,0 +1,5 @@
+site_name: Datawarehouse for BI (U colorado spec)
+nav:
+  - Home: index.md
+  - notes: week1.md
+theme: windmill
