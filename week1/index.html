@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>notes - Datawarehouse for BI (U colorado spec)</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "DBMS essentials week 2", url: "#_top", children: [
+              {title: "1. Basics of relational databases.", url: "#1-basics-of-relational-databases" },
+              {title: "2. Integrity rules:", url: "#2-integrity-rules" },
+              {title: "3. Basic SQL Create Table statement.", url: "#3-basic-sql-create-table-statement" },
+              {title: "4. Integrity Constraint Syntax.", url: "#4-integrity-constraint-syntax" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href=".." class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Home
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="dbms-essentials-week-2"><center>DBMS essentials week 2</center></h1>
+<h2 id="1-basics-of-relational-databases">1. Basics of relational databases.</h2>
+<h3 id="11-terminology-of-databases">1.1. Terminology of databases.</h3>
+<ul>
+<li>
+<p>A databases is a collection of tables.</p>
+</li>
+<li>
+<p>Each table has a</p>
+<ul>
+<li><strong>heading</strong>: table name and column names.</li>
+<li><strong>body</strong>: shows the rows of the table.</li>
+</ul>
+</li>
+</ul>
+<p>For conventions each column name has an abbreviation of the table name
+as prefix. Mixed case in a name highlights the different parts of the
+column name.</p>
+<p><img alt="dbew1" src="../images/2021/03/dbew1.png" /></p>
+<ul>
+<li>Matching values: they are used to combine multiple tables in a
+    relational database.</li>
+</ul>
+<p><img alt="dbew1_2" src="../images/2021/03/dbew1-2.png" /></p>
+<ul>
+<li>
+<p>Alternative Terminology according groups of users:</p>
+<p><img alt="dbew1_3" src="../images/2021/03/dbew1-3.png" /></p>
+</li>
+</ul>
+<p>The table-oriented terminology originally appealed to end users. The
+set-oriented terminology appeals to academic researchers. And the
+record-oriented terminology really was originally appealed to
+information systems professionals.</p>
+<p>Relational databases have been the dominant commercial standard in the
+database industry for more than 30 years. The relational data model is
+commercially dominate for several reasons.</p>
+<h2 id="2-integrity-rules">2. Integrity rules:</h2>
+<p>What is the consequence of two taxpayers of customers with the same
+government identifier or customer identifier?</p>
+<p>What is the consequence of a shipment associated with the wrong order?</p>
+<h3 id="21-some-definitions">2.1. Some definitions:</h3>
+<ul>
+<li>Null values: absence of a value, unknown or not applicable for a
+    row.</li>
+<li>Primary Key (PK): is a <strong>column</strong> or <strong>combination</strong> of columns with
+    <strong>unique</strong> values in each row.</li>
+<li>Foreign Key (FK): is a column or combination of columns in a table
+    that is related to a <strong>primary key</strong> in a <strong>related table</strong>.</li>
+</ul>
+<h3 id="22-integrity-rules">2.2. Integrity rules:</h3>
+<ul>
+<li>
+<p><strong>Entity Integrity rule</strong>:</p>
+<ul>
+<li>PK for each table.</li>
+<li><strong>No part of a PK</strong> can have missing values for PK.</li>
+<li>Ensures traceable entities.</li>
+</ul>
+</li>
+</ul>
+<p>For auditing, security, and communication reasons, business entities
+should be easily traceable and unique.</p>
+<ul>
+<li>
+<p><strong>Referential Integrity rule</strong>: Referential integrity means that
+    column values in one table match column values in a related table.</p>
+<ul>
+<li>Two kinds of values for a foreign key in a row match a primary
+    key value of a related table (usual).</li>
+<li>Some foreign keys can allow null values (but it is not usual).</li>
+<li>Ensures that the database contains valid connections.</li>
+</ul>
+</li>
+</ul>
+<p>For example, each row of the enrollment table contains a student number
+of a valid student. Otherwise, some enrollments can be meaningless
+possibly resulting in students denied enrollment because non-existing
+students took their places.</p>
+<p><img alt="dbew1_4" src="../images/2021/03/dbew1-4.png" /></p>
+<blockquote>
+<p>Note that StdNo is foreing key in the Enrollment table referring to
+StdNo in the Student table. And OfferNo is a foreign key in the
+Enrollment table referring to OfferNo in the</p>
+</blockquote>
+<ul>
+<li>
+<p>Integrity rule violations in the example above:</p>
+<ul>
+<li>StdNo has a null value on Student table being its primary key.</li>
+<li>StdNo has a null value in Enrollment and it compose a primary
+    key with the OfferNo</li>
+</ul>
+</li>
+<li>
+<p>Referential integrity violation:</p>
+<ul>
+<li>There is one OfferNo value in the Enrollment (FK in this table)
+    table that is in the Offering table: 6789.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Some foreign keys can allow null values (but it is not usual). For
+example offerings having not yet a faculty (faculty is foreign table
+in the offering table but is not part of the primary key in the
+offerings table)</p>
+</blockquote>
+<h3 id="23-entity-relation-diagram">2.3. Entity Relation Diagram:</h3>
+<p><img alt="dbew1_5" src="../images/2021/03/dbew1-5.png" /></p>
+<ul>
+<li>
+<p>Primary keys marked with a <code>P</code>.</p>
+</li>
+<li>
+<p>Foreign Key with an F.</p>
+</li>
+<li>
+<p>The lines represent relationships with referential integrity
+    constraints.</p>
+<ul>
+<li>Each relationship has a parent table: appearing next to the
+    <strong>arrow</strong> in the line.</li>
+<li>the child table appearing next to the foot symbol. This means
+    that a course can related to many offerings.</li>
+</ul>
+</li>
+<li>
+<p>A solid line means that the foreign key can not have missing values.</p>
+</li>
+</ul>
+<h2 id="3-basic-sql-create-table-statement">3. Basic SQL Create Table statement.</h2>
+<p><img alt="dbew1_6" src="../images/2021/03/dbew1-6.png" /></p>
+<pre><code class="sql">CREATE TABLE &lt;table-name&gt; (&lt;columns-list&gt;
+  [&lt;constraints-list&gt;])
+</code></pre>
+
+<p><img alt="dbew1_7" src="../images/2021/03/dbew1-7.png" /></p>
+<h3 id="31-common-sql-data-types">3.1. Common SQL data types.</h3>
+<ul>
+<li>Char(L): Fixed length, L is the maximun length. It is used for
+    columns with same length. IT used the maximun length.</li>
+<li>VARCHAR(L): Variable length character. It not used the maximum
+    length.</li>
+<li>INTEGER.</li>
+<li>FLOAT(P): P is the number of significant digits. Used for scientific
+    calculations.</li>
+<li>DECIMAL: W indicates the number of digits and R the number of places
+    at the right of the decimal point. Used for monetary amounts.</li>
+<li>DATES, TIME, TIMESTAMP.</li>
+</ul>
+<h2 id="4-integrity-constraint-syntax">4. Integrity Constraint Syntax.</h2>
+<h3 id="41-constraint-overview">4.1 Constraint Overview:</h3>
+<p>Subject:</p>
+<ul>
+<li>PK</li>
+<li>FK</li>
+<li>Unique</li>
+<li>Required (Not Null)</li>
+<li>Check (multiple conditions.)</li>
+</ul>
+<p>Placement: - Internal - External</p>
+<p>... to the column definition.</p>
+<p>Constraints involving more than one column must be placed external to
+column.</p>
+<p>The keyword constraint is optional for inline constraints, but required
+for external constraints.</p>
+<p>Examples:</p>
+<p><img alt="dbew1_8" src="../images/2021/03/dbew1-8.png" /></p>
+<p>These two constraints are internal but it could be internal because the
+involves only single a column.</p>
+<p><img alt="edbw1_9" src="../images/2021/03/edbw1-9.png" /></p>
+<p>The last 2 constraints could be internal but the first one must be
+external.</p>
+<p><img alt="dbew1_10" src="../images/2021/03/dbew1-10.png" /></p>
+<p>Not null constraints are typically inline because they involve single
+columns</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href=".." class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Home
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
