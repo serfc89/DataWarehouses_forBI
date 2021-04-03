@@ -1,5 +1,13 @@
-site_name: Datawarehouse for BI (U colorado spec)
+site_name: Datawarehousing for BI specialization (University of Colorado)
 nav:
   - Home: index.md
-  - notes: week1.md
-theme: windmill
+  - Database Management Essentials:
+          - Relational Data Model and Create Table Statement: week1.md
+theme: mkdocs
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences

@@ -1,17 +1,11 @@
-# Welcome to MkDocs
+# Data Warehousing for Business Intelligence Specialization
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+**Build a fully-optimized business data warehouse in five courses**
 
-## Commands
+[specialization homepage](https://www.coursera.org/specializations/data-warehousing?tab=degrees)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+This repository is to save notes for the 5 course in this specialization:
 
-## Project layout
+-[Database Management Essentials](https://www.coursera.org/learn/database-management/home/welcome)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+

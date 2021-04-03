@@ -127,9 +127,12 @@ students took their places.
 
 ![dbew1_6](images/2021/03/dbew1-6.png)
 
-``` {.sql}
-CREATE TABLE <table-name> (<columns-list>
-  [<constraints-list>])
+``` sql
+ CREATE TABLE <table-name>
+(<columns-list>[<constraints-list>])
+```
+```sql
+SELECT count(*) FROM my_table;
 ```
 
 ![dbew1_7](images/2021/03/dbew1-7.png)
