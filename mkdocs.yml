@@ -5,5 +5,6 @@ nav:
           - Relational Data Model and Create Table Statement: week1.md
 theme: material
 markdown_extensions:
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      linenums: true
   - pymdownx.superfences
