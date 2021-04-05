@@ -1,17 +1,17 @@
 {
 	"folders": {},
 	"connections": {
-		"mysql8-17832885ebf-1e389ea073cea31b": {
+		"mysql8-1789b0a905c-426e1036d24f57bf": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "classicmodels",
+			"name": "athletic",
 			"save-password": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "3306",
-				"database": "classicmodels",
-				"url": "jdbc:mysql://localhost:3306/classicmodels",
+				"database": "athletic",
+				"url": "jdbc:mysql://localhost:3306/athletic",
 				"type": "dev",
 				"auth-model": "native",
 				"handlers": {
@@ -20,7 +20,7 @@
 						"enabled": true,
 						"save-password": true,
 						"properties": {
-							"ssl.public.key.retrieve": "true",
+							"ssl.public.key.retrieve": "false",
 							"ssl.verify.server": "false",
 							"ssl.method": "CERTIFICATES",
 							"ssl.require": "false"
@@ -37,7 +37,8 @@
 			"description": "Regular development database",
 			"auto-commit": true,
 			"confirm-execute": false,
-			"confirm-data-change": false
+			"confirm-data-change": false,
+			"auto-close-transactions": false
 		}
 	}
 }
