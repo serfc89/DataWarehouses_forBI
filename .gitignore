@@ -18,6 +18,10 @@ Backup of *.doc*
 # Open office
 *.odt*
 
+# assesments
+BM*/assesments/
 
+# slides
+BM*/slides/
 
 
