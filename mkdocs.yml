@@ -3,8 +3,11 @@ nav:
   - Home: index.md
   - Database Management Essentials:
           - Relational Data Model and Create Table Statement: week1.md
+          - SQL Overview: week3.md
 theme: material
 markdown_extensions:
   - pymdownx.highlight:
       linenums: true
   - pymdownx.superfences
+extra_css:
+  - 'stylesheets/extra.css'
