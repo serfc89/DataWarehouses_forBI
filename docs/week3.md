@@ -16,7 +16,7 @@ Some concepts:
 
 - Exact and And Inexact text matching
 
-    *  Use LIKE operator to match against a pattern
+    * Use LIKE operator to match against a pattern
     - Use meta characters to specify patterns
     - Wildcard (%)
     - Any single character (_)
